@@ -1,9 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const { apiRoute} = require('./secrets');
+const bodyParser = require("body-parser");
 const app = express();
 app.use(cors());
-
+app.use(bodyParser.json());
 
 const port = 3000;
 const ip = apiRoute;
@@ -59,6 +60,17 @@ let maintenanceList = [
 ];
 app.get("/maintenance", (req, res) => {
   res.send(maintenanceList);
+});
+
+app.post("/maintenance", (req, res) => {
+  const newItem = req.body; // Assuming you are using a middleware like bodyParser to parse the request body
+
+  // Generate a new ID for the item
+  const newId = maintenanceList.length + 1;
+  newItem.id = newId;
+
+  maintenanceList.push(newItem);
+  res.send(newItem);
 });
 
 app.listen(port, ip, () => {
