@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-const { apiRoute} = require('./secrets');
+const { apiRoute } = require("./secrets");
 const bodyParser = require("body-parser");
-const moment = require('moment');
+const moment = require("moment");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -32,7 +32,7 @@ let maintenanceList = [
     enter: true,
     fire: false,
     pet: true,
-    image: "image1.jpg"
+    image: "image1.jpg",
   },
   {
     id: 2,
@@ -44,7 +44,7 @@ let maintenanceList = [
     enter: false,
     fire: true,
     pet: false,
-    image: "image2.jpg"
+    image: "image2.jpg",
   },
   {
     id: 3,
@@ -56,8 +56,8 @@ let maintenanceList = [
     enter: true,
     fire: false,
     pet: true,
-    image: "image3.jpg"
-  }
+    image: "image3.jpg",
+  },
 ];
 app.get("/maintenance", (req, res) => {
   res.send(maintenanceList);
@@ -77,40 +77,122 @@ app.post("/maintenance", (req, res) => {
 // Accounting
 app.get("/accounting/invoices", (req, res) => {
   const itemList = [
-    { id: 1, date: moment().format('MMMM'), num: 1 },
-    { id: 2, date: moment().subtract(1, 'month').format('MMMM'), num: 2 },
-    { id: 3, date: moment().subtract(2, 'month').format('MMMM'), num: 3 },
-    { id: 1, date: moment().subtract(3, 'month').format('MMMM'), num: 4},
-    { id: 2, date: moment().subtract(4, 'month').format('MMMM'), num: 5},
-    { id: 3, date: moment().subtract(5, 'month').format('MMMM'), num: 6 },
+    {
+      id: 1,
+      date: moment().format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 2,
+      date: moment().subtract(1, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 3,
+      date: moment().subtract(2, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 1,
+      date: moment().subtract(3, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 2,
+      date: moment().subtract(4, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 3,
+      date: moment().subtract(5, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
   ];
   res.send(itemList);
 });
 
 app.get("/accounting/debit", (req, res) => {
   const itemList = [
-    { id: 1, date: moment().format('MMMM'), num: 1 },
-    { id: 2, date: moment().subtract(1, 'month').format('MMMM'), num: 2 },
-    { id: 3, date: moment().subtract(2, 'month').format('MMMM'), num: 3 },
-    { id: 1, date: moment().subtract(3, 'month').format('MMMM'), num: 4},
-    { id: 2, date: moment().subtract(4, 'month').format('MMMM'), num: 5},
-    { id: 3, date: moment().subtract(5, 'month').format('MMMM'), num: 6 },
+    {
+      id: 1,
+      date: moment().format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 2,
+      date: moment().subtract(1, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 3,
+      date: moment().subtract(2, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 1,
+      date: moment().subtract(3, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 2,
+      date: moment().subtract(4, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 3,
+      date: moment().subtract(5, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
   ];
   res.send(itemList);
 });
 
 app.get("/accounting/credit", (req, res) => {
   const itemList = [
-    { id: 1, date: moment().format('MMMM'), num: 7 },
-    { id: 2, date: moment().subtract(1, 'month').format('MMMM'), num: 2 },
-    { id: 3, date: moment().subtract(2, 'month').format('MMMM'), num: 3 },
-    { id: 1, date: moment().subtract(3, 'month').format('MMMM'), num: 4},
-    { id: 2, date: moment().subtract(4, 'month').format('MMMM'), num: 5},
-    { id: 3, date: moment().subtract(5, 'month').format('MMMM'), num: 6 },
+    {
+      id: 1,
+      date: moment().format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 2,
+      date: moment().subtract(1, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 3,
+      date: moment().subtract(2, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 1,
+      date: moment().subtract(3, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 2,
+      date: moment().subtract(4, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
+    {
+      id: 3,
+      date: moment().subtract(5, "month").format("MMMM"),
+      num: (Math.random() * 100).toFixed(2),
+    },
   ];
   res.send(itemList);
 });
 
+// Messages
+app.get("/messages", (req, res) => {
+  const itemList = [
+    { id: 1, text: "Hello!", sender: "bot" },
+    { id: 2, text: "Hi there!", sender: "user" },
+    { id: 3, text: "How are you?", sender: "user" },
+    { id: 4, text: "I'm good, thank you!", sender: "bot" },
+  ];
+  res.send(itemList);
+});
 
 app.listen(port, ip, () => {
   console.log(`Server is running on http://${ip}:${port}`);
